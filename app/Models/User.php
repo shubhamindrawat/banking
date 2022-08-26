@@ -43,9 +43,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function linkedSocialAccounts()
+
+    public function providers()
     {
-        return $this->hasMany(LinkedSocialAccount::class);
+        return $this->hasMany(Provider::class,'user_id','id');
     }
 
 }
